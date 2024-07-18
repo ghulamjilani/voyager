@@ -1,0 +1,5 @@
+- if resource.errors.any?
+  #error_explanation{"data-turbo-cache" => "false"}
+    %ul.list-disc.list-inside.text-red-600
+      - resource.errors.full_messages.each do |message|
+        %li= message

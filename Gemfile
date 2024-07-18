@@ -16,6 +16,9 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[windows jruby]
+gem 'devise', '~> 4.9', '>= 4.9.4'
+gem 'rolify', '~> 6.0', '>= 6.0.1'
+gem 'pundit', '~> 2.3', '>= 2.3.2'
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows]
