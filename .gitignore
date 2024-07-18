@@ -33,9 +33,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/database.yml
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
 .rvmrc
 .idea
+/node_modules

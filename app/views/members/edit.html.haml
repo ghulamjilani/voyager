@@ -1,0 +1,33 @@
+%h1.font-bold Editing User
+
+= form_for(@user, url: member_path(@user), html: { method: :put, class: "space-y-6" }) do |f|
+
+  .mb-3
+    .flex.justify-center.my-4.my-md-0
+      .circular-file-input{"data-controller" => "user"}
+        = f.file_field :avatar, class: 'form-control', accept: 'image/*', data: { action: 'change->user#previewImage' }, id: 'fileInput'
+        .circle
+          %svg.bi.bi-image{fill: "currentColor", height: "100", viewbox: "0 0 16 16", width: "100"}
+            %path{d: "M13.687 11.272l-.894-.447V8.004l.894-.447L15 8.004v2.82l-1.313.656zM12.96 1H3.04C2.47 1 2 1.448 2 1.998v10.004c0 .55.47.998 1.04.998h9.92C13.53 13 14 12.552 14 12.002V1.998C14 1.448 13.53 1 12.96 1zM12 12H4V2h8v10z"}
+          %h6 Upload image
+          %img#imagePreview{alt: "Preview", src: "#"}/
+
+  .grid.grid-cols-1.gap-5.sm:grid-cols-2
+    .mb-5
+      = f.label :first_name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      = f.text_field :first_name, autofocus: true, required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+
+    .mb-5
+      = f.label :last_name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      = f.text_field :last_name, required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+
+    .mb-5
+      = f.label :user_name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      = f.text_field :user_name, required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+
+    .mb-5
+      = f.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      = f.email_field :email, required: true, disabled: true, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+
+    .actions
+    = f.submit "Update", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
